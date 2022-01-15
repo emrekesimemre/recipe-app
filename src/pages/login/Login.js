@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   FormContainer,
   Header,
@@ -13,7 +14,7 @@ import mealSvg from '../../assets/meal.svg';
 const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href="/"
+    window.location.href = '/';
   };
 
   return (

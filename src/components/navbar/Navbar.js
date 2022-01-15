@@ -3,10 +3,15 @@ import { Logo, Nav, Menu, MenuLink, Hamburger } from './NavbarStyles';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
+    
+  };
+
+  const handleLogin = () => {
+    setIsLogin(true);
   };
   return (
     <Nav>
@@ -22,10 +27,16 @@ const Navbar = () => {
       </Hamburger>
       <Menu isOpen={isOpen}>
         <MenuLink to="/about">About</MenuLink>
-        <MenuLink to={{ pathname: 'https://github.com/emrekesimemre' }}>
+        <MenuLink
+          as="a"
+          href="https://github.com/emrekesimemre"
+          target="_blank"
+        >
           Github
         </MenuLink>
-        <MenuLink to="/login">Login</MenuLink>
+        <MenuLink onClick={handleLogin} to="/login">
+          {!isLogin ? 'Logout' : 'Login'}
+        </MenuLink>
       </Menu>
     </Nav>
   );
